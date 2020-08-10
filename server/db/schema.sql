@@ -4,13 +4,15 @@ DROP TABLE IF EXISTS members;
 
 CREATE TABLE members(
     id SERIAL PRIMARY KEY,
-    given_name: VARCHAR,
-    family_name: VARCHAR
+    given_name VARCHAR,
+    family_name VARCHAR,
+    membership_level VARCHAR
 );
 
 CREATE TABLE classes(
     id SERIAL PRIMARY KEY,
-    capacity INT
+    capacity INT,
+    activity VARCHAR
 );
 
 CREATE TABLE bookings(
