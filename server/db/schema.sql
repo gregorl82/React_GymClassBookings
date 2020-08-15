@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS instructors;
 DROP TABLE IF EXISTS members;
 
 CREATE TABLE members(
@@ -9,10 +10,17 @@ CREATE TABLE members(
     membership_level VARCHAR
 );
 
+CREATE TABLE instructors(
+    id SERIAL PRIMARY KEY,
+    given_name VARCHAR,
+    family_name VARCHAR
+)
+
 CREATE TABLE classes(
     id SERIAL PRIMARY KEY,
     capacity INT,
-    activity VARCHAR
+    activity VARCHAR,
+    instructor_id INT REFERENCES instructors(id)
 );
 
 CREATE TABLE bookings(
